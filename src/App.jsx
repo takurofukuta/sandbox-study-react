@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ColorfulMessages from "./components/ColorfulMessages";
 
 const App = () => {
@@ -11,6 +11,14 @@ const App = () => {
   const onClickButtonFace = () => {
     setFace(!face);
   };
+
+  useEffect(() => {
+    if (num % 3 === 0) {
+      face || setFace(true);
+    } else {
+      face && setFace(false);
+    }
+  }, [num]);
 
   return (
     <>
